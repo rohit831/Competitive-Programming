@@ -1,0 +1,41 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+string day(int num){
+    switch(num){
+
+    case 0:
+        return "monday";
+    case 1:
+        return "tuesday";
+    case 2:
+        return "wednesday";
+    case 3:
+        return "thursday";
+    case 4:
+        return "friday";
+    case 5:
+        return "saturday";
+    case 6:
+        return "sunday";
+    default:
+        return "null";
+    }
+}
+
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        int yr,diff, odd;
+        cin>>yr;
+        odd = yr-1900;
+        for(int i=1900; i<yr; i++){
+            if(i%4 == 0 && (i%400 == 0 || i%100!=0))
+                odd++;
+        }
+        odd = odd%7;
+        cout<<day(odd)<<endl;
+    }
+    return 0;
+}
